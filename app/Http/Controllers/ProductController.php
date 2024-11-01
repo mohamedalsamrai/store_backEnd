@@ -60,7 +60,7 @@ class ProductController extends Controller
     $product->image_path = $fullImagePath; 
     $product->available = $request->available;
     $product->save();
-    $this->reorderProductIDs();
+    
 
     return redirect()->route('products.index')->with('success', 'تم إضافة المنتج بنجاح');
 }
@@ -131,21 +131,9 @@ class ProductController extends Controller
       
         $product->delete();
     
-        
-        $this->reorderProductIds();
-    
+
         return redirect()->route('products.index')->with('success', 'تم حذف المنتج بنجاح');
     }
     
-    private function reorderProductIds()
-    {
-        
-        $products = Product::orderBy('id')->get();
-    
-       
-        foreach ($products as $index => $product) {
-            $product->id = $index + 1; 
-            $product->save(); 
-        }
-    }
+  
 }
