@@ -59,6 +59,7 @@
                     <option value="مبردات">مبردات</option>
                     <option value="ماوس">ماوس</option>
                     <option value="كيبورد">كيبورد</option>
+                    <option value="حاسوب محمول">حاسوب محمول</option>
                 </select>
             </div>
 

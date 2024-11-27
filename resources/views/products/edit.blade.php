@@ -58,6 +58,7 @@
                     <option value="مبردات" {{ $product->category == 'مبردات' ? 'selected' : '' }}>مبردات</option>
                     <option value="ماوس" {{ $product->category == 'ماوس' ? 'selected' : '' }}>ماوس</option>
                     <option value="كيبورد" {{ $product->category == 'كيبورد' ? 'selected' : '' }}>كيبورد</option>
+                    <option value="حاسوب محمول" {{ $product->category == 'حاسوب محمول' ? 'selected' : '' }}>حاسوب محمول</option>
                 </select>
             </div>
 
