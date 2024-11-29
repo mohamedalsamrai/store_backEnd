@@ -17,6 +17,8 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 
+
+
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
@@ -24,6 +26,7 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/products', [ProductApiController::class, 'index']);
 Route::get('/products/filter', [ProductApiController::class, 'filterProducts']);
+Route::get('/products/subcategories', [ProductApiController::class, 'getSubcategories']);
 
 
 Route::post('register', [AuthController::class, 'register']);

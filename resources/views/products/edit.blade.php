@@ -46,21 +46,21 @@
             </div>
 
             <div class="form-group">
-                <label for="category">القسم</label>
+                <label for="category">القسم الرئيسي</label>
                 <select name="category" id="category" class="form-control" required>
-                    <option value="معالجات" {{ $product->category == 'معالجات' ? 'selected' : '' }}>معالجات</option>
-                    <option value="بطاقات رسومية" {{ $product->category == 'بطاقات رسومية' ? 'selected' : '' }}>بطاقات رسومية</option>
-                    <option value="ذواكر RAM" {{ $product->category == 'ذواكر RAM' ? 'selected' : '' }}>ذواكر RAM</option>
-                    <option value="لوحات أم" {{ $product->category == 'لوحات أم' ? 'selected' : '' }}>لوحات أم</option>
-                    <option value="أقراص تخزين" {{ $product->category == 'أقراص تخزين' ? 'selected' : '' }}>أقراص تخزين</option>
-                    <option value="مزودات طاقة" {{ $product->category == 'مزودات طاقة' ? 'selected' : '' }}>مزودات طاقة</option>
-                    <option value="صناديق حاسوب" {{ $product->category == 'صناديق حاسوب' ? 'selected' : '' }}>صناديق حاسوب</option>
-                    <option value="مبردات" {{ $product->category == 'مبردات' ? 'selected' : '' }}>مبردات</option>
-                    <option value="ماوس" {{ $product->category == 'ماوس' ? 'selected' : '' }}>ماوس</option>
-                    <option value="كيبورد" {{ $product->category == 'كيبورد' ? 'selected' : '' }}>كيبورد</option>
-                    <option value="حاسوب محمول" {{ $product->category == 'حاسوب محمول' ? 'selected' : '' }}>حاسوب محمول</option>
+                    <option value="Laptops" {{ $product->category == 'Laptops' ? 'selected' : '' }}>Laptops</option>
+                    <option value="PC Components" {{ $product->category == 'PC Components' ? 'selected' : '' }}>PC Components</option>
+                    <option value="Mouses" {{ $product->category == 'Mouses' ? 'selected' : '' }}>Mouses</option>
+                    <option value="Keyboards" {{ $product->category == 'Keyboards' ? 'selected' : '' }}>Keyboards</option>
+         
                 </select>
             </div>
+            
+            <div class="form-group">
+                <label for="subcategory">القسم الفرعي</label>
+                <input type="text" name="subcategory" id="subcategory" class="form-control" value="{{ $product->subcategory }}" placeholder="اكتب القسم الفرعي هنا">
+            </div>
+
 
             <div class="form-group">
                 <label for="discount_percentage">نسبة التخفيض (%)</label>

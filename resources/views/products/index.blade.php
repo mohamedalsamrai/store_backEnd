@@ -78,6 +78,7 @@
                     <th>اسم المنتج</th>
                     <th class="text-center">السعر</th>
                     <th class="text-center">القسم</th>
+                    <th class="text-center">القسم الفرعي</th>
                     <th class="text-center">نسبة التخفيض</th>
                     <th class="text-center">متوفر</th>
                     <th class="text-center">الإجراءات</th>
@@ -97,6 +98,7 @@
                         <td class="text-center">{{ $product->name }}</td>
                         <td class="text-center">{{ number_format($product->price) }} دينار عراقي</td>
                         <td class="text-center">{{ $product->category ?? 'غير محدد' }}</td>
+                        <td class="text-center">{{ $product->subcategory ?? 'غير محدد' }}</td>
                         <td class="text-center">{{ $product->discount_percentage ? $product->discount_percentage . '%' : 'لا يوجد' }}</td>
                         <td class="text-center">{{ $product->available ? 'نعم' : 'لا' }}</td>
                         <td class="text-center">

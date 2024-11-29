@@ -47,27 +47,24 @@
             </div>
 
             <div class="form-group">
-                <label for="category">القسم</label>
+                <label for="category">القسم الرئيسي</label>
                 <select name="category" id="category" class="form-control" required>
-                    <option value="معالجات">معالجات</option>
-                    <option value="بطاقات رسومية">بطاقات رسومية</option>
-                    <option value="ذواكر RAM">ذواكر RAM</option>
-                    <option value="لوحات أم">لوحات أم</option>
-                    <option value="أقراص تخزين">أقراص تخزين</option>
-                    <option value="مزودات طاقة">مزودات طاقة</option>
-                    <option value="صناديق حاسوب">صناديق حاسوب</option>
-                    <option value="مبردات">مبردات</option>
-                    <option value="ماوس">ماوس</option>
-                    <option value="كيبورد">كيبورد</option>
-                    <option value="حاسوب محمول">حاسوب محمول</option>
+                    <option value="Laptops">Laptops</option>
+                    <option value="PC Components">PC Components</option>
+                    <option value="Mouses">Mouses</option>
+                    <option value="Keyboards">Keyboards</option>
+                   
+                    
                 </select>
             </div>
-
+            
+           
             <div class="form-group">
-                <label for="discount_percentage">نسبة التخفيض (%)</label>
-                <input type="number" name="discount_percentage" id="discount_percentage" class="form-control" min="0" max="100">
+                <label for="subcategory">القسم الفرعي</label>
+                <input type="text" name="subcategory" id="subcategory" class="form-control" placeholder="اكتب القسم الفرعي هنا">
             </div>
-
+                </select>
+            </div>
             <input type="hidden" name="available" value="1">
 
             <div class="form-group">

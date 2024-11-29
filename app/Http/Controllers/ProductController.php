@@ -43,6 +43,7 @@ class ProductController extends Controller
         'price' => 'required|numeric',
         'detail' => 'nullable|string',
         'category' => 'required|string',
+        'subcategory' => 'nullable|string',
         'discount_percentage' => 'nullable|numeric|min:0|max:100',
         'image_path' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         'available' => 'required|boolean',
@@ -56,6 +57,7 @@ class ProductController extends Controller
     $product->price = $request->price;
     $product->detail = $request->detail;
     $product->category = $request->category;
+    $product->subcategory = $request->subcategory;
     $product->discount_percentage = $request->discount_percentage;
     $product->image_path = $fullImagePath; 
     $product->available = $request->available;
@@ -86,6 +88,7 @@ class ProductController extends Controller
              'price' => 'required|numeric',
              'detail' => 'nullable|string',
              'category' => 'required|string',
+             'subcategory' => 'nullable|string',
              'discount_percentage' => 'nullable|numeric|min:0|max:100',
              'image_path' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
              'available' => 'required|boolean',
@@ -96,6 +99,7 @@ class ProductController extends Controller
          $product->price = $request->price;
          $product->detail = $request->detail;
          $product->category = $request->category;
+         $product->subcategory = $request->subcategory;
          $product->discount_percentage = $request->discount_percentage;
          $product->available = $request->available;
      

@@ -8,47 +8,67 @@ use Illuminate\Http\Request;
 
 class ProductApiController extends Controller
 {
-   public function index()  {
-    return Product::all();
-   }
-   public function filterProducts(Request $request)
-{
-    
-    $minPrice = $request->query('min_price');
-    $maxPrice = $request->query('max_price');
-    $sortOrder = $request->query('order', 'asc');
-    $available = $request->query('available');
-    $category = $request->query('category');  
-
-    
-    $query = Product::query();
-
-    if ($category !== null) {
-        $query->where('category', $category);
-    }
-
   
-    if ($minPrice !== null) {
-        $query->where('price', '>=', $minPrice);
+    public function index()  
+    {
+        return Product::all();
+    }
+
+      public function filterProducts(Request $request)
+    {
+        $minPrice = $request->query('min_price');
+        $maxPrice = $request->query('max_price');
+        $sortOrder = $request->query('order', 'asc');
+        $available = $request->query('available');
+        $category = $request->query('category');  
+        $subcategory = $request->query('subcategory');
+
+        $query = Product::query();
+
+        if ($category !== null) {
+            $query->where('category', $category);
+        }
+
+        if ($subcategory !== null) {
+            $query->where('subcategory', $subcategory);
+        }
+
+        if ($minPrice !== null) {
+            $query->where('price', '>=', $minPrice);
+        }
+
+        if ($maxPrice !== null) {
+            $query->where('price', '<=', $maxPrice);
+        }
+
+        if ($available !== null) {
+            $query->where('available', $available);
+        }
+
+        $query->orderBy('price', $sortOrder);
+
+        $products = $query->get();
+
+        return response()->json($products);
     }
 
    
-    if ($maxPrice !== null) {
-        $query->where('price', '<=', $maxPrice);
-    }
-
-   
-    $query->orderBy('price', $sortOrder);
-
-   
-    if ($available !== null) {
-        $query->where('available', $available);
-    }
-
+    public function getSubcategories(Request $request)
+    {
+        $category = $request->query('category');
     
-    $products = $query->get();
-
- 
-    return response()->json($products);
-}
+        if (!$category) {
+            return response()->json([
+                'error' => 'يرجى تحديد القسم الرئيسي.'
+            ], 400);
+        }
+    
+      
+        $subcategories = Product::where('category', $category)
+            ->whereNotNull('subcategory')
+            ->distinct()
+            ->pluck('subcategory');
+    
+        return response()->json($subcategories);
+    }
 }
